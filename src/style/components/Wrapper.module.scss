@@ -1,0 +1,15 @@
+@use "../util/" as u;
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: min(100% - 2rem, 1000px);
+  margin-inline: auto;
+  padding: 2rem 0;
+
+  @include u.breakpoint("laptop") {
+    padding: 3rem 0;
+    gap: 3rem;
+  }
+}

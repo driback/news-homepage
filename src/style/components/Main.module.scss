@@ -1,0 +1,12 @@
+@use "../util/" as u;
+
+.Main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+  @include u.breakpoint("laptop") {
+    gap: 4rem 1.5rem;
+  }
+}

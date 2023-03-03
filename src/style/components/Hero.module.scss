@@ -1,0 +1,71 @@
+@use "../util/" as u;
+
+.Hero {
+  display: grid;
+  gap: 1rem;
+
+  &__Title {
+    font-size: 3rem;
+    font-weight: 800;
+  }
+
+  &__Content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+
+    > p {
+      font-size: 1rem;
+      color: u.$dark-grayish-blue;
+    }
+
+    > button {
+      display: block;
+      border: 0;
+      outline: 0;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      background-color: u.$soft-red;
+      color: u.$off-white;
+      padding: 1rem 2rem;
+      width: fit-content;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+}
+
+@include u.breakpoint("laptop") {
+  .Hero {
+    flex: 0 1 68%;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 3rem;
+
+    > picture {
+      grid-column: 1/-1;
+    }
+
+    &__Title {
+      grid-column: 1/2;
+    }
+
+    &__Content {
+      grid-column: 2/3;
+
+      > p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+      }
+      > button {
+        font-size: 0.85rem;
+
+        &:hover {
+          background-color: u.$very-dark-blue;
+        }
+      }
+    }
+  }
+}

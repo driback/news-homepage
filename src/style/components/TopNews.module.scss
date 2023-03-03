@@ -1,0 +1,11 @@
+@use "../util/" as u;
+
+.News {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  @include u.breakpoint("laptop") {
+    flex-direction: row;
+  }
+}

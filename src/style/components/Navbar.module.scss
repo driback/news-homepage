@@ -1,0 +1,75 @@
+@use "../util/" as u;
+
+.Navigation {
+  display: block;
+  width: fit-content;
+
+  &__Button {
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: 91;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &__Items {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(36, 100%, 99%);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 2rem;
+    width: 70%;
+    z-index: 90;
+    translate: 100%;
+    transition: translate 150ms ease-in-out;
+
+    &__Active {
+      translate: 0%;
+    }
+  }
+
+  &__Item {
+    font-size: 1.5rem;
+
+    &:first-child {
+      margin-top: 10rem;
+    }
+  }
+}
+
+@include u.breakpoint("laptop") {
+  .Navigation {
+    &__Button {
+      display: none;
+    }
+
+    &__Items {
+      position: relative;
+      flex-direction: row;
+      width: auto;
+      translate: 0;
+      top: auto;
+      right: auto;
+      bottom: auto;
+      align-items: center;
+      padding: 0;
+    }
+
+    &__Item {
+      font-size: 0.85rem;
+      color: u.$dark-grayish-blue;
+      &:hover {
+        color: u.$soft-red;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}

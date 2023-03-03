@@ -1,0 +1,58 @@
+@use "../util/" as u;
+
+.News {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+  background-color: u.$very-dark-blue;
+
+  &__Title {
+    color: u.$soft-orange;
+    font-size: 2rem;
+  }
+
+  &__Content {
+    display: flex;
+    gap: 0.75rem;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid u.$dark-grayish-blue;
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    > span {
+      color: u.$off-white;
+      font-size: 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    > p {
+      color: u.$grayish-blue;
+    }
+  }
+}
+
+@include u.breakpoint("laptop") {
+  .News {
+    flex: 1 1;
+
+    &__Content {
+      > span {
+        font-size: 1rem;
+
+        &:hover {
+          color: u.$soft-orange;
+        }
+      }
+
+      > p {
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
